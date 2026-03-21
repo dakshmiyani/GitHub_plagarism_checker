@@ -1,0 +1,201 @@
+[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+GitHub API: Using Bearer token (github_pat...)
+[Job 42] Scanning repo: https://github.com/dakshmiyani/Movify-main.git
+Found 10 valid code files. First few: src/App.jsx, src/components/Moviecard.jsx, src/components/Navbar.jsx
+Analyzing 10 files from dakshmiyani/Movify-main...
+[V5] Repository tokenized. Total tokens: 1031 across 10 valid code files.
+Searching GitHub for 15 literal snippets...
+Searching GitHub for snippet: "<main className='main-content'>..."
+Rate limit hit on /search/code?q=main+className+main+content&per_page=30&page=1, waiting 10000ms (retry 1/3)...
+Rate limit hit on /search/code?q=main+className+main+content&per_page=30&page=1, waiting 20000ms (retry 2/3)...
+  -> Found 130 unique candidates for this snippet.
+Searching GitHub for snippet: "<Route path='/' element={<Home />}></Route>..."
+Rate limit hit on /search/code?q=Route+path+element+Home+Route&per_page=30&page=5, waiting 10000ms (retry 1/3)...
+Rate limit hit on /search/code?q=Route+path+element+Home+Route&per_page=30&page=5, waiting 20000ms (retry 2/3)...
+  -> Found 130 unique candidates for this snippet.
+Searching GitHub for snippet: "<Route path='/fav' element={<Fav />}></Route>..."
+  -> Found 140 unique candidates for this snippet.
+Searching GitHub for snippet: "function Moviecard({ movie ,onFav , isFav}) {..."
+Rate limit hit on /search/code?q=function+Moviecard+movie+onFav+isFav&per_page=30&page=1, waiting 10000ms (retry 1/3)...
+Rate limit hit on /search/code?q=function+Moviecard+movie+onFav+isFav&per_page=30&page=5, waiting 10000ms (retry 1/3)...
+Rate limit hit on /search/code?q=function+Moviecard+movie+onFav+isFav&per_page=30&page=5, waiting 20000ms (retry 2/3)...
+Rate limit hit on /search/code?q=function+Moviecard+movie+onFav+isFav&per_page=30&page=5, waiting 40000ms (retry 3/3)...
+Error fetching search page 5: Request failed with status code 403
+  -> Found 117 unique candidates for this snippet.
+Searching GitHub for snippet: "console.log(`Movie ${movie.title} isFav:`, isFav);..."
+Rate limit hit on /search/code?q=console+log+Movie+movie+title+isFav+isFav&per_page=30&page=3, waiting 10000ms (retry 1/3)...
+Rate limit hit on /search/code?q=console+log+Movie+movie+title+isFav+isFav&per_page=30&page=3, waiting 20000ms (retry 2/3)...
+Rate limit hit on /search/code?q=console+log+Movie+movie+title+isFav+isFav&per_page=30&page=3, waiting 40000ms (retry 3/3)...
+Error fetching search page 3: Request failed with status code 403
+  -> Found 55 unique candidates for this snippet.
+Searching GitHub for snippet: "<p className="movie-name">{movie.title}</p>..."
+  -> Found 147 unique candidates for this snippet.
+Searching GitHub for snippet: "<button className="like-button" onClick={() => onFav(movie.ids.imdb)}..."
+Rate limit hit on /search/code?q=button+className+like+button+onClick+onFav+movie+ids+imdb&per_page=30&page=1, waiting 10000ms (retry 1/3)...
+Rate limit hit on /search/code?q=button+className+like+button+onClick+onFav+movie+ids+imdb&per_page=30&page=1, waiting 20000ms (retry 2/3)...
+Rate limit hit on /search/code?q=button+className+like+button+onClick+onFav+movie+ids+imdb&per_page=30&page=1, waiting 40000ms (retry 3/3)...
+Error fetching search page 1: Request failed with status code 403
+  -> Found 0 unique candidates for this snippet.
+Searching GitHub for snippet: "<Link to="/" className="nav-link">Home</Link>..."
+  -> Found 134 unique candidates for this snippet.
+Searching GitHub for snippet: "<Link to="/fav" className="nav-link">Favorites</Link>..."
+Rate limit hit on /search/code?q=Link+to+fav+className+nav+link+Favorites+Link&per_page=30&page=5, waiting 10000ms (retry 1/3)...
+Rate limit hit on /search/code?q=Link+to+fav+className+nav+link+Favorites+Link&per_page=30&page=5, waiting 20000ms (retry 2/3)...
+  -> Found 125 unique candidates for this snippet.
+Searching GitHub for snippet: "createRoot(document.getElementById('root')).render(..."
+  -> Found 141 unique candidates for this snippet.
+Searching GitHub for snippet: "const { favMovies, setfavMovies } = useFavmovies();..."
+  -> Found 2 unique candidates for this snippet.
+Searching GitHub for snippet: "setfavMovies(prev => prev.filter(movie => movie.ids.imdb !== id));..."
+  -> Found 1 unique candidates for this snippet.
+Searching GitHub for snippet: "console.log("Added new fav:", newFav);..."
+Rate limit hit on /search/code?q=console+log+Added+new+fav+newFav&per_page=30&page=2, waiting 10000ms (retry 1/3)...
+Rate limit hit on /search/code?q=console+log+Added+new+fav+newFav&per_page=30&page=2, waiting 20000ms (retry 2/3)...
+  -> Found 150 unique candidates for this snippet.
+Searching GitHub for snippet: "isFav={favMovies.some(favMovie => favMovie.ids.imdb === movie.ids.imdb..."
+  -> Found 1 unique candidates for this snippet.
+Searching GitHub for snippet: "const FavMoviesContext = createContext();..."
+  -> Found 5 unique candidates for this snippet.
+Total unique candidate repositories to check: 1174
+Scanning batch of 3 candidates...
+  -> Skipping understanding-astro/understanding-astro-book (Too large: 180712kb)
+  -> Skipping viniciusgribas/understanding-astro-book (Too large: 213448kb)
+Found 10 valid code files. First few: src/admin.js, src/edit.js, src/fn/fn.js
+Found 10 valid code files. First few: src/admin.js, src/edit.js, src/fn/fn.js
+Analyzing 10 files from vincent-peugnet/wcms...
+  -> Checked vincent-peugnet/wcms: Similarity Score = 0.00
+Scanning batch of 3 candidates...
+  -> Skipping iu5git/Web (Too large: 456404kb)
+Found 0 valid code files. First few: 
+  -> Skipping cvyl/system-prompts-for-ai-models-tools (Too few code files: 0)
+Found 2 valid code files. First few: script.js, server.py
+  -> Skipping Gittu02/data (Too few code files: 2)
+Scanning batch of 3 candidates...
+  -> Skipping IgorSergeevichISIT/WebApp (Too large: 137289kb)
+Found 15 valid code files. First few: src/App.jsx, src/components/Card.jsx, src/components/Footer.jsx
+Found 0 valid code files. First few: 
+  -> Skipping vasilymsl/lab8-golang_Creditworthiness (Too few code files: 0)
+Found 15 valid code files. First few: src/App.jsx, src/components/Card.jsx, src/components/Footer.jsx
+Analyzing 15 files from RAHUL56rahul56/MovieHunt...
+  -> Checked RAHUL56rahul56/MovieHunt: Similarity Score = 0.00
+Scanning batch of 3 candidates...
+  -> Skipping rix4uni/WordList (Too large: 807618kb)
+Found 29 valid code files. First few: src/components/Combobox/ComboboxItem/index.js, src/components/Combobox/index.js, src/components/GalleryContainer/index.js
+Found 152 valid code files. First few: React Asssigments/Episode 01 - Inception/Code/App.js, React Asssigments/Episode 02 - Igniting Our App/Code/App.js, React Asssigments/Episode 03 - Laying the Foundation/Code/App.js
+Found 29 valid code files. First few: src/components/Combobox/ComboboxItem/index.js, src/components/Combobox/index.js, src/components/GalleryContainer/index.js
+Analyzing 29 files from kula124/HCi_2020_Fresh...
+Found 152 valid code files. First few: React Asssigments/Episode 01 - Inception/Code/App.js, React Asssigments/Episode 02 - Igniting Our App/Code/App.js, React Asssigments/Episode 03 - Laying the Foundation/Code/App.js
+Analyzing 50 files from Shaikhmohddanish/React-JS...
+  -> Checked kula124/HCi_2020_Fresh: Similarity Score = 0.00
+Error scanning repo Shaikhmohddanish/React-JS: Maximum call stack size exceeded
+Scanning batch of 3 candidates...
+Found 27 valid code files. First few: .vuepress/config.js, docs/assets/js/10.d6a7e726.js, docs/assets/js/11.887eb323.js
+Found 0 valid code files. First few: 
+  -> Skipping iTranslateX/odoo-cookbook (Too few code files: 0)
+Found 13 valid code files. First few: src/components/AddComment.jsx, src/components/AddPost.jsx, src/components/Application.jsx
+Found 27 valid code files. First few: .vuepress/config.js, docs/assets/js/10.d6a7e726.js, docs/assets/js/11.887eb323.js
+Analyzing 27 files from MiYogurt/electron-flyer...
+Found 13 valid code files. First few: src/components/AddComment.jsx, src/components/AddPost.jsx, src/components/Application.jsx
+Analyzing 13 files from stevekinney/think-piece...
+  -> Checked stevekinney/think-piece: Similarity Score = 0.00
+  -> Checked MiYogurt/electron-flyer: Similarity Score = 0.00
+Scanning batch of 3 candidates...
+  -> Skipping julia-wrobel/reproducible_research (Too large: 175769kb)
+Found 0 valid code files. First few: 
+  -> Skipping FrontenderMagazine/how-to-poison-the-mobile-user (Too few code files: 0)
+Found 90 valid code files. First few: client/src/App.tsx, client/src/components/Footer.tsx, client/src/components/GalleryModal.tsx
+Found 90 valid code files. First few: client/src/App.tsx, client/src/components/Footer.tsx, client/src/components/GalleryModal.tsx
+Analyzing 50 files from AdamBabinicz/fryzjer...
+  -> Checked AdamBabinicz/fryzjer: Similarity Score = 0.00
+Scanning batch of 3 candidates...
+Found 1 valid code files. First few: 1688_getimg.py
+  -> Skipping deciduousl/1688_getimg (Too few code files: 1)
+Found 118 valid code files. First few: src/App.tsx, src/components/AchievementBadge.tsx, src/components/CertificateCard.tsx
+Found 3 valid code files. First few: js/questions/factorial.js, js/questions/factors.js, js/questions/palindrom.js
+Found 118 valid code files. First few: src/App.tsx, src/components/AchievementBadge.tsx, src/components/CertificateCard.tsx
+Analyzing 50 files from LavKumarShakya/Reputation_Passport...
+Found 3 valid code files. First few: js/questions/factorial.js, js/questions/factors.js, js/questions/palindrom.js
+Analyzing 3 files from DibyadyutiDas/web...
+  -> Checked DibyadyutiDas/web: Similarity Score = 0.00
+  -> Checked LavKumarShakya/Reputation_Passport: Similarity Score = 0.00
+Scanning batch of 3 candidates...
+Found 89 valid code files. First few: src/main/java/io/github/iethem/firebase/FirebaseApplication.java, src/main/java/io/github/iethem/firebase/FirebaseInitializer.java, src/main/java/io/github/iethem/firebase/MvcConfig.java
+Found 25 valid code files. First few: jar/2游魂收集不分排名.js, jar/D佬.js, jar/OK.js
+Found 94 valid code files. First few: src/app.js, src/index.js, app.jsx
+Found 89 valid code files. First few: src/main/java/io/github/iethem/firebase/FirebaseApplication.java, src/main/java/io/github/iethem/firebase/FirebaseInitializer.java, src/main/java/io/github/iethem/firebase/MvcConfig.java
+Analyzing 50 files from iethem/spring-jwt-firebase...
+Found 25 valid code files. First few: jar/2游魂收集不分排名.js, jar/D佬.js, jar/OK.js
+Analyzing 25 files from fishforks/ol...
+Found 94 valid code files. First few: src/app.js, src/index.js, app.jsx
+Analyzing 50 files from umarsiyaki/mighty-store...
+Error scanning repo fishforks/ol: Maximum call stack size exceeded
+  -> Checked iethem/spring-jwt-firebase: Similarity Score = 0.00
+  -> Checked umarsiyaki/mighty-store: Similarity Score = 0.00
+Scanning batch of 3 candidates...
+Found 42 valid code files. First few: src/App.js, src/App.test.js, src/Auth.js
+Found 16 valid code files. First few: src/components/AddComment.jsx, src/components/AddPost.jsx, src/components/Application.jsx
+Found 21 valid code files. First few: src/components/AddComment.jsx, src/components/AddPost.jsx, src/components/Application.jsx
+Found 42 valid code files. First few: src/App.js, src/App.test.js, src/Auth.js
+Analyzing 42 files from Hope-Nts/react-dashboardv2...
+Found 16 valid code files. First few: src/components/AddComment.jsx, src/components/AddPost.jsx, src/components/Application.jsx
+Analyzing 16 files from AeolusZane/firebase-demo...
+Found 21 valid code files. First few: src/components/AddComment.jsx, src/components/AddPost.jsx, src/components/Application.jsx
+Analyzing 21 files from sibteali786/think-piece...
+  -> Checked AeolusZane/firebase-demo: Similarity Score = 0.00
+  -> Checked sibteali786/think-piece: Similarity Score = 0.00
+  -> Checked Hope-Nts/react-dashboardv2: Similarity Score = 0.00
+Scanning batch of 3 candidates...
+  -> Skipping serein2494/TVBOX (Too large: 240636kb)
+Found 13 valid code files. First few: src/components/AddComment.jsx, src/components/AddPost.jsx, src/components/Application.jsx
+Found 96 valid code files. First few: src/App.tsx, src/components/AchievementBadge.tsx, src/components/CertificateCard.tsx
+Found 13 valid code files. First few: src/components/AddComment.jsx, src/components/AddPost.jsx, src/components/Application.jsx
+Analyzing 13 files from harshtalks/think-piece-micro-blogging...
+Found 96 valid code files. First few: src/App.tsx, src/components/AchievementBadge.tsx, src/components/CertificateCard.tsx
+Analyzing 50 files from LavKumarShakya/reputation_passport1...
+  -> Checked harshtalks/think-piece-micro-blogging: Similarity Score = 0.00
+  -> Checked LavKumarShakya/reputation_passport1: Similarity Score = 0.00
+Scanning batch of 3 candidates...
+  -> Skipping mmfan/newrechaBOX (Too large: 435804kb)
+  -> Skipping ja7ad/W3Schools (Too large: 753810kb)
+Found 78 valid code files. First few: src/ConnectedRouter.js, src/actions.js, src/immutable.js
+Found 78 valid code files. First few: src/ConnectedRouter.js, src/actions.js, src/immutable.js
+Analyzing 50 files from supasate/connected-react-router...
+  -> Checked supasate/connected-react-router: Similarity Score = 0.00
+Scanning batch of 3 candidates...
+  -> Skipping tmilovanov/wisecreator (Too large: 87513kb)
+Found 104 valid code files. First few: 01basicreact/src/App.js, 01basicreact/src/Chai.jsx, 01basicreact/src/index.js
+Found 0 valid code files. First few: 
+  -> Skipping hercules-team/augeas (Too few code files: 0)
+Found 104 valid code files. First few: 01basicreact/src/App.js, 01basicreact/src/Chai.jsx, 01basicreact/src/index.js
+Analyzing 50 files from AyushMehta292/Webdev2...
+  -> Checked AyushMehta292/Webdev2: Similarity Score = 0.00
+Scanning batch of 3 candidates...
+Found 25 valid code files. First few: FundStreet Project/postcss.config.js, FundStreet Project/src/App.jsx, FundStreet Project/src/components/Footer/Footer.jsx
+Found 1 valid code files. First few: process.py
+  -> Skipping zydou/high-frequency-words (Too few code files: 1)
+Found 0 valid code files. First few: 
+  -> Skipping greenheartgames/gdt-translations (Too few code files: 0)
+Found 25 valid code files. First few: FundStreet Project/postcss.config.js, FundStreet Project/src/App.jsx, FundStreet Project/src/components/Footer/Footer.jsx
+Analyzing 25 files from ks094/FS...
+  -> Checked ks094/FS: Similarity Score = 0.00
+Scanning batch of 1 candidates...
+Found 2 valid code files. First few: code/transformer.py, code/utils.py
+  -> Skipping boyu-ai/Hands-on-NLP (Too few code files: 2)
+[V5] Job completed in 653.6s. Total matches found: 0
+Job completed { similarityMatches: [] }
+[Job 43] Scanning repo: https://github.com/dakshmiyani/Movify-main.git
+Found 10 valid code files. First few: src/App.jsx, src/components/Moviecard.jsx, src/components/Navbar.jsx
+Analyzing 10 files from dakshmiyani/Movify-main...
+[V5] Repository tokenized. Total tokens: 1031 across 10 valid code files.
+Searching GitHub for 15 literal snippets...
+Searching GitHub for snippet: "<main className='main-content'>..."
+  -> Found 130 unique candidates for this snippet.
+Searching GitHub for snippet: "<Route path='/' element={<Home />}></Route>..."
+Rate limit hit on /search/code?q=Route+path+element+Home+Route&per_page=30&page=5, waiting 10000ms (retry 1/3)...
+Rate limit hit on /search/code?q=Route+path+element+Home+Route&per_page=30&page=5, waiting 20000ms (retry 2/3)...
+  -> Found 130 unique candidates for this snippet.
+Searching GitHub for snippet: "<Route path='/fav' element={<Fav />}></Route>..."
+  -> Found 140 unique candidates for this snippet.
+Searching GitHub for snippet: "function Moviecard({ movie ,onFav , isFav}) {..."
+Rate limit hit on /search/code?q=function+Moviecard+movie+onFav+isFav&per_page=30&page=4, waiting 10000ms (retry 1/3)...
+Rate limit hit on /search/code?q=function+Moviecard+movie+onFav+isFav&per_page=30&page=4, waiting 20000ms (retry 2/3)...
