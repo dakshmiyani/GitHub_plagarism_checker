@@ -1,5 +1,5 @@
-const app = require("../../server");
 const AppError = require("./AppError");
+const logger = require("../utils/logger");
 
 class ErrorHandler {
     static handleError(err, req, res, next) {
@@ -10,7 +10,7 @@ class ErrorHandler {
         let body = null;
         try {
             body = JSON.stringify(req.body);
-        } catch (err) {
+        } catch (error) {
             body = req.body;
         }
         if (logError) {
@@ -25,31 +25,22 @@ class ErrorHandler {
                 "query": req.query
             }
 
-            console.error("[ErrorHandler] ", "requestInfo", requestInfo,  "err", err);
+            logger.error("[ErrorHandler] Request failed", { requestInfo, error: err });
         }
         
         if (res.headersSent) {
             return next(err)
         }
 
-        if (err instanceof AppError) {
-            res.status(err.status).json({
-                status: err.status,
-                message: err.responseMsg,
-                errorName: err.name,
-                //extras: err.extras,
-                //errorStack: err,
-            });
-        } else {
-            const status = err.status || 500;
-            res.status(status).json({
-                status: status,
-                message: "Error occurred!",
-                errorName: "Uncaught Error",
-                //extras: {},
-                //errorStack: err,
-            });
-        }
+        const status = err.status || 500;
+        const message = (err instanceof AppError) ? err.responseMsg : (err.message || "Error occurred!");
+
+        res.status(status).json({
+            success: false,
+            status: status,
+            error: message,
+            errorName: err.name || "Uncaught Error"
+        });
     }
 }
 
