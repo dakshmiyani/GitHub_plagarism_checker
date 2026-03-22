@@ -9,6 +9,7 @@ import { Stars } from '@react-three/drei';
 import { useNavigate } from 'react-router-dom';
 import ParticleNetwork from './ParticleNetwork';
 import WireframeGlobe from './WireframeGlobe';
+import ThemeToggle from '../../ThemeToggle';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,7 +27,6 @@ const HeroSection = () => {
   };
 
   useGSAP(() => {
-    // Basic GSAP timeline for text reveals
     const tl = gsap.timeline();
     tl.from('.badge-pill', { opacity: 0, y: -20, duration: 0.5, ease: 'power2.out' })
       .from('.hero-headline span', { opacity: 0, y: 30, duration: 0.8, stagger: 0.2, ease: 'power3.out' }, '-=0.2')
@@ -34,7 +34,6 @@ const HeroSection = () => {
       .from('.hero-cta', { opacity: 0, y: 20, duration: 0.5, stagger: 0.1 }, '-=0.2')
       .from('.hero-input-bar', { opacity: 0, y: 20, duration: 0.6, ease: 'back.out(1.7)' }, '-=0.3');
 
-    // Parallax effect for 3D background on scroll
     gsap.to(canvasContainer.current, {
       yPercent: -20,
       ease: "none",
@@ -45,11 +44,16 @@ const HeroSection = () => {
         scrub: true
       }
     });
-
   }, { scope: container });
 
   return (
     <section ref={container} className="relative w-full h-[100vh] flex flex-col items-center justify-center overflow-hidden">
+      
+      {/* Theme Toggle - top right corner */}
+      <div className="absolute top-6 right-6 z-20">
+        <ThemeToggle />
+      </div>
+
       {/* 3D Background */}
       <div ref={canvasContainer} className="absolute inset-0 z-0">
         <Canvas gl={{ antialias: true, alpha: true }} camera={{ position: [0, 0, 5], fov: 75 }}>
@@ -57,15 +61,12 @@ const HeroSection = () => {
             <Stars radius={100} depth={50} count={6000} factor={4} fade speed={1} />
             <ParticleNetwork />
             <WireframeGlobe />
-            {/* Subtle perspective grid plane fading into distance */}
             <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, 0]}>
               <planeGeometry args={[100, 100, 40, 40]} />
               <meshBasicMaterial color="#00F5FF" wireframe transparent opacity={0.05} />
             </mesh>
           </Suspense>
         </Canvas>
-        
-        {/* Gradient overlay to fade bottom into next section */}
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050810] to-transparent pointer-events-none" />
       </div>
 
@@ -125,7 +126,6 @@ const HeroSection = () => {
             Analyze →
           </button>
         </form>
-        
       </div>
       
       {/* Scroll indicator */}
