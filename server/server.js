@@ -2,26 +2,23 @@
 require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
-const path = require('path');
+const path = require('node:path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const fileUpload = require('express-fileupload');
 const RouteMap = require('./src/routes/middleware/RouteMap');
 const ErrorHandler = require('./src/errorHandlers/ErrorHandler');
-const PORT = process.env.PORT || 3000;
+const { PORT, IS_PRODUCTION } = require('./constants');
 
 const app = express();
-
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, './src/views'));
 app.set('view engine', 'ejs');
 
 let corsOptions;
-if (process.env.NODE_ENV === "production") {
+if (IS_PRODUCTION) {
     // TODO: Implement dynamic origins so as to accommodate all internal and third party domains
     corsOptions = {
         origin: function (origin, callback) {
