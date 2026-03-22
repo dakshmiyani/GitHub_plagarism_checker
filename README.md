@@ -102,6 +102,20 @@ Navigate to `http://localhost:5173` to see the app!
 
 ---
 
+## 🏗️ System Architecture
+
+RepoLens follows a decoupled, event-driven architecture designed for high availability and long-running analysis tasks:
+
+1.  **The Nexus (Frontend)**: A React-based dashboard that initiates requests and polls for real-time updates.
+2.  **The Orchestrator (API Server)**: Handles authentication, persistent storage (Postgres), and manages the **BullMQ** task queue.
+3.  **The Processor (Background Worker)**: A dedicated Node.js service that performs heavy-duty GitHub API fetches and the core similarity calculations.
+4.  **The Core (Similarity Engine)**: A specialized utility suite that uses code normalization, fingerprinting, and the **Winnowing algorithm** to find structural similarities between different codebases.
+
+> [!TIP]
+> **For a deep dive into the algorithms and code structure, see our [ARCHITECTURE.md](./ARCHITECTURE.md) guide.**
+
+---
+
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 18, Vite, Framer Motion, GSAP, TailwindCSS (for base structure), Recharts.
