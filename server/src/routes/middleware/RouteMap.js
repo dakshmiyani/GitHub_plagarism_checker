@@ -7,6 +7,8 @@ const { RES_LOCALS } = require("./constant");
 const AuthModel = require("../../models/AuthModel");
 const GithubAnalyticsRouter = require("../router/gitHubAnalyticsRouter");
 const PlagiarismRouter = require("../router/plagiarismRouter");
+const Db = require("../../models/libs/Db");
+const redis = require("../../config/redis");
 
 const Router = express.Router();
 const openrouter = express.Router();
@@ -20,6 +22,32 @@ class RouteMap {
     app.use("/open/api/", openrouter);
     // 🔓 OPEN ROUTES (NO JWT)
     // app.use("/open/api/auth",Authrouter);
+
+    openrouter.get("/health", async (req, res) => {
+      const health = {
+        server: "up",
+        database: "down",
+        redis: "down",
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        await Db.getQueryBuilder().raw('SELECT 1');
+        health.database = "up";
+      } catch (err) {
+        console.error("Health check database error:", err);
+      }
+
+      try {
+        await redis.ping();
+        health.redis = "up";
+      } catch (err) {
+        console.error("Health check redis error:", err);
+      }
+
+      const isHealthy = health.database === "up" && health.redis === "up";
+      res.status(isHealthy ? 200 : 503).json(health);
+    });
       
 
     openrouter.use("/github", GithubAnalyticsRouter);
