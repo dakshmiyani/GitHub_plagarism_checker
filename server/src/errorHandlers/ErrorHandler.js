@@ -1,4 +1,3 @@
-const app = require("../../server");
 const AppError = require("./AppError");
 
 class ErrorHandler {
@@ -32,24 +31,15 @@ class ErrorHandler {
             return next(err)
         }
 
-        if (err instanceof AppError) {
-            res.status(err.status).json({
-                status: err.status,
-                message: err.responseMsg,
-                errorName: err.name,
-                //extras: err.extras,
-                //errorStack: err,
-            });
-        } else {
-            const status = err.status || 500;
-            res.status(status).json({
-                status: status,
-                message: "Error occurred!",
-                errorName: "Uncaught Error",
-                //extras: {},
-                //errorStack: err,
-            });
-        }
+        const status = err.status || 500;
+        const message = (err instanceof AppError) ? err.responseMsg : (err.message || "Error occurred!");
+
+        res.status(status).json({
+            success: false,
+            status: status,
+            error: message,
+            errorName: err.name || "Uncaught Error"
+        });
     }
 }
 
