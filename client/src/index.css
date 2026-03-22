@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+[data-theme="light"] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+[data-theme="light"] img,
+[data-theme="light"] video,
+[data-theme="light"] canvas {
+  filter: invert(1) hue-rotate(180deg);
+}
