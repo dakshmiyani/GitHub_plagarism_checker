@@ -9,6 +9,7 @@ const GithubAnalyticsRouter = require("../router/gitHubAnalyticsRouter");
 const PlagiarismRouter = require("../router/plagiarismRouter");
 const Db = require("../../models/libs/Db");
 const redis = require("../../config/redis");
+const { JWT_SECRET_KEY } = require("../../../constants");
 
 const Router = express.Router();
 const openrouter = express.Router();
@@ -69,8 +70,8 @@ class RouteMap {
 
 
     // Router.use("/auth", Authrouter);
- 
-    
+
+
 
 
 
@@ -83,7 +84,7 @@ class RouteMap {
       });
     });
 
-     
+
 
   }
 
@@ -94,7 +95,7 @@ class RouteMap {
     };
 
     const authJwt = jwt({
-      secret: process.env.JWT_SECRET_KEY,
+      secret: JWT_SECRET_KEY,
       algorithms: ["HS256"],
       getToken: (req) => {
         if (req.headers.authorization) {

@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+[data-theme="light"] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+[data-theme="light"] img,
+[data-theme="light"] video,
+[data-theme="light"] canvas {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+@keyframes slide-in {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.animate-slide-in {
+    animation: slide-in 0.3s ease-out forwards;
+}

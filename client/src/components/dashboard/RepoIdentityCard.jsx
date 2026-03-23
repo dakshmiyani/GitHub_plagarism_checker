@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
+import { Copy } from 'lucide-react';
 const CountUpComponent = CountUp.default || CountUp;
 
 import { GlassCard } from './shared/Components';
@@ -29,6 +30,8 @@ const StatChip = ({ icon: Icon, value, label, color }) => (
 );
 
 const RepoIdentityCard = ({ data, loading, error, repoUrl }) => {
+    const [toastMessage, setToastMessage] = React.useState('');
+
     if (loading) {
         return <SkeletonCard height="160px" />;
     }
@@ -65,6 +68,17 @@ const RepoIdentityCard = ({ data, loading, error, repoUrl }) => {
                         >
                             <Github size={14} /> View on GitHub ↗
                         </a>
+                        <button
+                            onClick={() => {
+                                navigator.clipboard.writeText(repoUrl);
+                                setToastMessage('URL copied!');
+                                setTimeout(() => setToastMessage(''), 2000);
+                            }}
+                            title="Copy URL"
+                            className="flex items-center gap-2 cursor-pointer hover:text-emerald-400 transition-colors"
+                        >
+                            <Copy size={14} /> Copy Repository URL
+                        </button>
                     </div>
                 </motion.div>
 
@@ -95,6 +109,13 @@ const RepoIdentityCard = ({ data, loading, error, repoUrl }) => {
                         color="border-amber-400" 
                     />
                 </div>
+                
+                {/* Toast confirming copied URL */}
+                {toastMessage && (
+                    <div className="fixed top-5 right-5 bg-black/80 text-white px-4 py-2 rounded shadow-lg animate-slide-in z-50">
+                        {toastMessage}
+                    </div>
+                )}
             </div>
         </GlassCard>
     );

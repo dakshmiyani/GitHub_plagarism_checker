@@ -2,15 +2,16 @@ require("dotenv").config();
 const { Worker } = require("bullmq");
 const connection = require("../config/redis");
 const PlagiarismManager = require("../businessLogic/managers/PlagiarismManager");
+const logger = require("../utils/logger");
 
 const worker = new Worker(
   "plagiarism-check",
   async job => {
     const { repoUrl, compareUrls = [] } = job.data;
 
-    console.log(`\n[Worker] Job ${job.id} — scanning: ${repoUrl}`);
+    logger.info(`[Worker] Job ${job.id} — scanning: ${repoUrl}`);
     if (compareUrls.length > 0) {
-      console.log(`[Worker] Comparing against ${compareUrls.length} other repo(s).`);
+      logger.info(`[Worker] Comparing against ${compareUrls.length} other repo(s).`);
     }
 
     const result = await PlagiarismManager.detectGlobalPlagiarism(
@@ -32,16 +33,16 @@ const worker = new Worker(
 worker.on("completed", job => {
   const report = job.returnvalue && job.returnvalue.report;
   if (report) {
-    console.log(
-      `\n[Worker] ✅ Job ${job.id} completed — Score: ${report.plagiarismScore}% — Verdict: ${report.verdict}`
+    logger.info(
+      `[Worker] ✅ Job ${job.id} completed — Score: ${report.plagiarismScore}% — Verdict: ${report.verdict}`
     );
   } else {
-    console.log(`\n[Worker] ✅ Job ${job.id} completed.`);
+    logger.info(`[Worker] ✅ Job ${job.id} completed.`);
   }
 });
 
 worker.on("failed", (job, err) => {
-  console.error(`\n[Worker] ❌ Job ${job.id} failed: ${err.message}`);
+  logger.error(`[Worker] ❌ Job ${job.id} failed: ${err.message}`, { err });
 });
 
-console.log("[Worker] Started and waiting for plagiarism jobs...");
+logger.info("[Worker] Started and waiting for plagiarism jobs...");
