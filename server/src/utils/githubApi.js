@@ -1,4 +1,5 @@
 const axios = require("axios");
+const { GITHUB_TOKEN } = require("../../constants");
 
 const githubApi = axios.create({
   baseURL: "https://api.github.com",
@@ -7,7 +8,7 @@ const githubApi = axios.create({
   }
 });
 
-const token = process.env.GITHUB_TOKEN ? process.env.GITHUB_TOKEN.trim() : null;
+const token = GITHUB_TOKEN ? GITHUB_TOKEN.trim() : null;
 
 if (token && (token.startsWith("gh") || token.startsWith("github_pat_"))) {
   const authPrefix = token.startsWith("github_pat_") ? "Bearer" : "token";

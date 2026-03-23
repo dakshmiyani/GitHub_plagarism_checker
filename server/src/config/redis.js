@@ -1,8 +1,9 @@
 const IORedis = require("ioredis");
+const { REDIS_HOST, REDIS_PORT } = require('../../constants');
 
 const connection = new IORedis({
-  host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT,
+  host: REDIS_HOST,
+  port: REDIS_PORT,
   maxRetriesPerRequest: null
 });
 

@@ -1,5 +1,5 @@
 const winston = require('winston');
-const path = require('path');
+const { LOG_LEVEL } = require('../../constants');
 
 const logFormat = winston.format.combine(
   winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
@@ -9,7 +9,7 @@ const logFormat = winston.format.combine(
 );
 
 const logger = winston.createLogger({
-  level: process.env.LOG_LEVEL || 'info',
+  level: LOG_LEVEL || 'info',
   format: logFormat,
   defaultMeta: { service: 'github-plagiarism-checker' },
   transports: [
