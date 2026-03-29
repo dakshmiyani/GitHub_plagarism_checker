@@ -7,6 +7,9 @@ const { RES_LOCALS } = require("./constant");
 const AuthModel = require("../../models/AuthModel");
 const GithubAnalyticsRouter = require("../router/gitHubAnalyticsRouter");
 const PlagiarismRouter = require("../router/plagiarismRouter");
+const HealthCheckRouter = require("../router/healthCheckRouter");
+const Db = require("../../models/libs/Db");
+const redis = require("../../config/redis");
 const { JWT_SECRET_KEY } = require("../../../constants");
 
 const Router = express.Router();
@@ -22,6 +25,8 @@ class RouteMap {
     // 🔓 OPEN ROUTES (NO JWT)
     // app.use("/open/api/auth",Authrouter);
 
+    openrouter.use("/health", HealthCheckRouter);
+      
 
     openrouter.use("/github", GithubAnalyticsRouter);
     openrouter.use("/plagiarism", PlagiarismRouter);
